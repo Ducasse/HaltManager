@@ -45,7 +45,8 @@ HaltManager class >> filterOutMethodsFromBlacklist: anOrderedCollectionOfRBMetho
 
 { #category : #filtering }
 HaltManager class >> filterOutMethodsFromHaltManager: anOrderedCollectionOfRBMethodDefinition [
-	^ anOrderedCollectionOfRBMethodDefinition select: [ :anRGMethodDef |(anRGMethodDef package realPackage == self package) not ]
+	^ anOrderedCollectionOfRBMethodDefinition 
+			select: [ :anRGMethodDef |(anRGMethodDef package realPackage == self package) not ]
 ]
 
 { #category : #'world menu' }
@@ -76,9 +77,10 @@ HaltManager class >> methodsToDisplay [
 		aMethod hasBreakpoint or: [
 		aMethod containsHalt or: [
 		(aMethod method sendsAnySelectorOf: inactiveHaltsSelectors) or: [
-		aMethod hasInactiveBreakpoint or: [ 
+		aMethod hasInactiveBreakpoint "or: [ 
 		(InactiveHalt_Metalink inactiveHaltsInMethod: aMethod) isNotEmpty	
-		]]]]]
+		]"
+	]]]]
 ]
 
 { #category : #'world menu' }
@@ -86,7 +88,7 @@ HaltManager class >> open [
 	<script>
 	"Opens a method browser showing all methods containing breakpoints (and its flavours like break once), halts (and its flavours like haltOnce), inactive breakpoints (and flavours) and inactive halts (and flavours). Filter out such methods that belong to the HaltManager package."
 	| b |
-	b := ClyQueryBrowser browseMethods: (self filterOutMethodsFromBlacklist: (self filterOutMethodsFromHaltManager: (self methodsToDisplay))) withTitle: 'Halt Manager'.
+	b := ClyQueryBrowserMorph browseMethods: (self filterOutMethodsFromBlacklist: (self filterOutMethodsFromHaltManager: (self methodsToDisplay))) withTitle: 'Halt Manager'.
 	b switchResultTo: (ClySortedQueryResult using: SortMethodsByPackageFunction new )
 	
 ]
@@ -96,6 +98,6 @@ HaltManager class >> openUnfiltered [
 	<script>
 	"Does the same as the openHaltManager method, without filtering out the methods from the HaltManager package"
 	| b |
-	b := ClyQueryBrowser browseMethods: (self methodsToDisplay) withTitle: 'Halt Manager'.
+	b := ClyQueryBrowserMorph browseMethods: (self methodsToDisplay) withTitle: 'Halt Manager'.
 	b switchResultTo: (ClySortedQueryResult using: SortMethodsByPackageFunction new )
 ]
