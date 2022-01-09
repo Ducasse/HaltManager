@@ -4,7 +4,7 @@ For each breakpoint (all flavours of them, so including break once and break on 
 Class {
 	#name : #ActiveBreakpointIconStyler,
 	#superclass : #BreakpointIconStyler,
-	#category : #HaltManager
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

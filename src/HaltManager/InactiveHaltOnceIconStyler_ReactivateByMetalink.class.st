@@ -4,7 +4,7 @@ For each haltOnCount: message in code browsers (like `self haltOnCount:`) that h
 Class {
 	#name : #'InactiveHaltOnceIconStyler_ReactivateByMetalink',
 	#superclass : #IconStyler,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

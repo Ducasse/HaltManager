@@ -8,7 +8,7 @@ Class {
 		'messageNodeCheckingBlock',
 		'resultMessageNodes'
 	],
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #'as yet unclassified' }

@@ -1,7 +1,7 @@
 Class {
 	#name : #'InactiveHaltColonIconStyler_ReactivateByMetalink',
 	#superclass : #IconStyler,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

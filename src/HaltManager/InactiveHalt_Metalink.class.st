@@ -23,7 +23,7 @@ Class {
 	#classVars : [
 		'allInactiveHalts'
 	],
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #accessing }

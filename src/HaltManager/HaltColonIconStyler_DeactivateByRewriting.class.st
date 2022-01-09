@@ -4,7 +4,7 @@ For each halt: message in code browsers (like `self halt: 'hello'`), I add a but
 Class {
 	#name : #'HaltColonIconStyler_DeactivateByRewriting',
 	#superclass : #IconStyler,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

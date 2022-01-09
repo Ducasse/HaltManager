@@ -4,7 +4,7 @@ For each halt message in code browsers (like `self halt`) that has been deactiva
 Class {
 	#name : #'InactiveHaltIconStyler_ReactivateByMetalink',
 	#superclass : #IconStyler,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

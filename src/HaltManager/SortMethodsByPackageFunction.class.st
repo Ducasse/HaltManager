@@ -1,7 +1,7 @@
 Class {
 	#name : #SortMethodsByPackageFunction,
 	#superclass : #ClySortMethodFunction,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #'as yet unclassified' }

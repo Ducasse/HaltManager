@@ -4,7 +4,7 @@ For each haltOnce message in code browsers (like `self haltOnce`), I add a butto
 Class {
 	#name : #'HaltOnceIconStyler_DeactivateByMetalink',
 	#superclass : #IconStyler,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

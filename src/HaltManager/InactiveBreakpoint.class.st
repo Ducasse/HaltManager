@@ -23,7 +23,7 @@ Class {
 	#classVars : [
 		'allInactiveBreakpoints'
 	],
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #accessing }

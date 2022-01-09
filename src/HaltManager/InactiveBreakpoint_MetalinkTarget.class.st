@@ -4,7 +4,7 @@ Metalinks attached to ast nodes to mark the positions of inactive breakpoints ca
 Class {
 	#name : #'InactiveBreakpoint_MetalinkTarget',
 	#superclass : #Exception,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #'as yet unclassified' }

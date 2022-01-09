@@ -6,7 +6,7 @@ I am also responsible for the HaltManager entry in the Tools section of the worl
 Class {
 	#name : #HaltManager,
 	#superclass : #Object,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #filtering }
@@ -63,9 +63,10 @@ HaltManager class >> menuCommandOn: aBuilder [
 
 { #category : #filtering }
 HaltManager class >> methodIsOnBlacklist: anRGMethodDef [
+
 	^ self blacklist anySatisfy: [:classNameSymbolAndMethodNameSymbol |
-			((anRGMethodDef realClass) = (self environment at: (classNameSymbolAndMethodNameSymbol at: 1) ifAbsent: [^false])) and: 
-			[ anRGMethodDef name = (classNameSymbolAndMethodNameSymbol at: 2) ]
+			((anRGMethodDef realClass) = (self environment at: (classNameSymbolAndMethodNameSymbol at: 1) ifAbsent: [^false])) 
+				and: [ anRGMethodDef name = (classNameSymbolAndMethodNameSymbol at: 2) ]
 	].
 ]
 
@@ -79,12 +80,25 @@ HaltManager class >> methodsToDisplay [
 		(aMethod method sendsAnySelectorOf: inactiveHaltsSelectors) or: [
 		aMethod hasInactiveBreakpoint "or: [ 
 		(InactiveHalt_Metalink inactiveHaltsInMethod: aMethod) isNotEmpty	
-		]"
+		] SD: commented for now"
 	]]]]
 ]
 
 { #category : #'world menu' }
 HaltManager class >> open [
+	<script>
+	"Opens a method browser showing all methods containing breakpoints (and its flavours like break once), halts (and its flavours like haltOnce), inactive breakpoints (and flavours) and inactive halts (and flavours). Filter out such methods that belong to the HaltManager package."
+	| b |
+	b := ClyQueryBrowserMorph 
+		browseMethods: (self filterOutMethodsFromBlacklist: (self filterOutMethodsFromHaltManager: self methodsToDisplay)) 
+		withTitle: 'Halt Manager'.
+	b switchResultTo: (ClySortedQueryResult using: SortMethodsByPackageFunction new).
+	^ b
+	
+]
+
+{ #category : #'world menu' }
+HaltManager class >> openHaltOnlyOnPackage: aString [
 	<script>
 	"Opens a method browser showing all methods containing breakpoints (and its flavours like break once), halts (and its flavours like haltOnce), inactive breakpoints (and flavours) and inactive halts (and flavours). Filter out such methods that belong to the HaltManager package."
 	| b |

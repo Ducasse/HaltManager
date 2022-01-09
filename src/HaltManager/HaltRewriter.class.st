@@ -4,7 +4,7 @@ I provide a method to rewrite a method's source code to change the selector of a
 Class {
 	#name : #HaltRewriter,
 	#superclass : #Object,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #'as yet unclassified' }

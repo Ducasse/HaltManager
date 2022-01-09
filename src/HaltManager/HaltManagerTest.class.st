@@ -8,7 +8,7 @@ Class {
 		'breakpointsAddedDuringSetupAndTests',
 		'inactiveBreakpointsAddedDuringSetupAndTests'
 	],
-	#category : #HaltManager
+	#category : #'HaltManager-Core'
 }
 
 { #category : #utility }

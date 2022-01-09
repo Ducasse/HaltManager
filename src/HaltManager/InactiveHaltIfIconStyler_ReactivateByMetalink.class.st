@@ -4,7 +4,7 @@ For each haltIf: message in code browsers (like `self haltIf:`) that has been de
 Class {
 	#name : #'InactiveHaltIfIconStyler_ReactivateByMetalink',
 	#superclass : #IconStyler,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Stylers'
 }
 
 { #category : #defaults }

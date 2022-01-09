@@ -4,7 +4,7 @@ Metalinks attached to halt (and flavours) ast nodes to erase their bytecode halt
 Class {
 	#name : #'InactiveHalt_MetalinkTarget',
 	#superclass : #Exception,
-	#category : 'HaltManager'
+	#category : #'HaltManager-Core'
 }
 
 { #category : #'as yet unclassified' }
