@@ -1,3 +1,0 @@
-system announcements
-handleMethodRemoved: anAnnouncement
-	self removeInactiveBreakpointsFromMethod: anAnnouncement method

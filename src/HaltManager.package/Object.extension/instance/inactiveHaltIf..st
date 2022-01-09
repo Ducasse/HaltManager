@@ -1,2 +1,0 @@
-*HaltManager
-inactiveHaltIf: anArgument

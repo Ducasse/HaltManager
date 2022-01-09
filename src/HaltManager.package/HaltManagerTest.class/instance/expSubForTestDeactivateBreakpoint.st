@@ -1,4 +1,0 @@
-experiment subjects
-expSubForTestDeactivateBreakpoint
-	1+1.
-	self addBreakpointOnSetupHere

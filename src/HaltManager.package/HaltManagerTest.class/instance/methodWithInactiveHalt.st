@@ -1,3 +1,0 @@
-halts and breakpoints
-methodWithInactiveHalt
-	self inactiveHalt

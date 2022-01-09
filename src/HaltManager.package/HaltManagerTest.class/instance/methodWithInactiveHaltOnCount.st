@@ -1,3 +1,0 @@
-halts and breakpoints
-methodWithInactiveHaltOnCount
-	self inactiveHaltOnCount: 4
