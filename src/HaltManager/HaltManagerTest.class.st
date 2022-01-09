@@ -8,7 +8,7 @@ Class {
 		'breakpointsAddedDuringSetupAndTests',
 		'inactiveBreakpointsAddedDuringSetupAndTests'
 	],
-	#category : 'HaltManager'
+	#category : #HaltManager
 }
 
 { #category : #utility }
@@ -229,6 +229,7 @@ HaltManagerTest >> tearDown [
 
 { #category : #tests }
 HaltManagerTest >> testDeactivateBreakpoint [
+
 	| nodesWithBreakpoints nodeWithBreakpoint inactiveBreakpoint |
 	"Assert that the method does indeed raises a self halt (because of a breakpoint) before touching it"
 	self should: [ self expSubForTestDeactivateBreakpoint ] raise: Halt.
@@ -243,9 +244,6 @@ HaltManagerTest >> testDeactivateBreakpoint [
 	self assert: (InactiveBreakpoint allInactiveBreakpoints anySatisfy: [:inacBrkpt | inacBrkpt == inactiveBreakpoint]).
 	"Assert that the method does not raise a Halt any longer after its breakpoint has been deactivated"
 	self shouldnt: [self expSubForTestDeactivateBreakpoint] raise: Halt.
-	
-	
-	
 ]
 
 { #category : #tests }

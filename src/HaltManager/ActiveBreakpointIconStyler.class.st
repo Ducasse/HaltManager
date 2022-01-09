@@ -4,13 +4,13 @@ For each breakpoint (all flavours of them, so including break once and break on 
 Class {
 	#name : #ActiveBreakpointIconStyler,
 	#superclass : #BreakpointIconStyler,
-	#category : 'HaltManager'
+	#category : #HaltManager
 }
 
 { #category : #defaults }
 ActiveBreakpointIconStyler >> highlightColor [
 	"Almost completely transparent, but not completely to avoid this bug: https://pharo.fogbugz.com/f/cases/20809/"
-	^(Color red alpha: 0.01)
+	^ Color red alpha: 0.01
 ]
 
 { #category : #defaults }

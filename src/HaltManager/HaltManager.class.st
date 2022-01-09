@@ -46,7 +46,7 @@ HaltManager class >> filterOutMethodsFromBlacklist: anOrderedCollectionOfRBMetho
 { #category : #filtering }
 HaltManager class >> filterOutMethodsFromHaltManager: anOrderedCollectionOfRBMethodDefinition [
 	^ anOrderedCollectionOfRBMethodDefinition 
-			select: [ :anRGMethodDef |(anRGMethodDef package realPackage == self package) not ]
+			select: [ :anRGMethodDef |(anRGMethodDef package == self package) not ]
 ]
 
 { #category : #'world menu' }
@@ -57,7 +57,7 @@ HaltManager class >> menuCommandOn: aBuilder [
 	(aBuilder item: #'Halt Manager')
 		order: 0.42;
 		iconName: #haltIcon;
-		parent: #Tools;
+		parent: #Library;
 		action: [ self open ]
 ]
 
