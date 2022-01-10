@@ -8,12 +8,6 @@ Class {
 }
 
 { #category : #defaults }
-HaltOnCountIconStyler_DeactivateByMetalink >> highlightColor [
-	"Almost completely transparent, but not completely to avoid this bug: https://pharo.fogbugz.com/f/cases/20809/"
-	^(Color red alpha: 0.01)
-]
-
-{ #category : #defaults }
 HaltOnCountIconStyler_DeactivateByMetalink >> iconBlock: aNode [
 	^[ :textSegmentMorph | 
 		InactiveHalt_Metalink deactivateHaltNode: aNode.

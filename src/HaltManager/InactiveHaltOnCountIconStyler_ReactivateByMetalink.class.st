@@ -8,11 +8,6 @@ Class {
 }
 
 { #category : #defaults }
-InactiveHaltOnCountIconStyler_ReactivateByMetalink >> highlightColor [
-	^((Color r: 0.2 g: 0.6 b: 1 alpha: 0.3))
-]
-
-{ #category : #defaults }
 InactiveHaltOnCountIconStyler_ReactivateByMetalink >> iconBlock: aNode [
 	^[ :seg | 
 		InactiveHalt_Metalink reactivateHaltNode: aNode.
