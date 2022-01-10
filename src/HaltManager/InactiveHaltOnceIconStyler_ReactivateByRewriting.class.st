@@ -5,11 +5,6 @@ Class {
 }
 
 { #category : #defaults }
-InactiveHaltOnceIconStyler_ReactivateByRewriting >> highlightColor [
-	^((Color r: 0.2 g: 0.6 b: 1 alpha: 0.3))
-]
-
-{ #category : #defaults }
 InactiveHaltOnceIconStyler_ReactivateByRewriting >> iconBlock: aNode [
 	^[ :textSegmentMorph | 
 		HaltRewriter rewriteMessageNode: aNode toChangeSelectorTo: #haltOnce.
@@ -34,16 +29,6 @@ InactiveHaltOnceIconStyler_ReactivateByRewriting >> iconBlock_old: aNode [
 			classified: compiledMethod protocol.
 		Transcript show: newSourceCode.
 		textSegmentMorph delete]
-]
-
-{ #category : #defaults }
-InactiveHaltOnceIconStyler_ReactivateByRewriting >> iconFor: aNode [
-	^ self iconNamed: #haltIcon 
-]
-
-{ #category : #defaults }
-InactiveHaltOnceIconStyler_ReactivateByRewriting >> iconLabelBlock: aNode [
-	^ ['Reactivate by rewriting']
 ]
 
 { #category : #defaults }
