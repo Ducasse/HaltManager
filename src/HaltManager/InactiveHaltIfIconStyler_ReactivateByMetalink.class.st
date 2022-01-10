@@ -15,11 +15,6 @@ InactiveHaltIfIconStyler_ReactivateByMetalink >> iconBlock: aNode [
 ]
 
 { #category : #defaults }
-InactiveHaltIfIconStyler_ReactivateByMetalink >> iconFor: aNode [
-	^ self iconNamed: #haltIcon 
-]
-
-{ #category : #defaults }
 InactiveHaltIfIconStyler_ReactivateByMetalink >> iconLabelBlock: aNode [
 	^ ['Reactivate']
 ]

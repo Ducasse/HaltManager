@@ -8,23 +8,6 @@ Class {
 }
 
 { #category : #defaults }
-HaltIfIconStyler_DeactivateByMetalink >> iconBlock: aNode [
-	^[ :textSegmentMorph | 
-		InactiveHalt_Metalink deactivateHaltNode: aNode.
-		textSegmentMorph delete]
-]
-
-{ #category : #defaults }
-HaltIfIconStyler_DeactivateByMetalink >> iconFor: aNode [
-	^ self iconNamed: #haltIcon 
-]
-
-{ #category : #defaults }
-HaltIfIconStyler_DeactivateByMetalink >> iconLabelBlock: aNode [
-	^ ['Deactivate']
-]
-
-{ #category : #defaults }
 HaltIfIconStyler_DeactivateByMetalink >> shouldStyleNode: aNode [
 	^aNode isMessage and: [ (aNode selector = 'haltIf:') and: [aNode hasInactiveHalt not]]
 ]

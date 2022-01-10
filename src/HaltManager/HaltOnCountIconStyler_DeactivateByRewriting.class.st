@@ -15,11 +15,6 @@ HaltOnCountIconStyler_DeactivateByRewriting >> iconBlock: aNode [
 ]
 
 { #category : #defaults }
-HaltOnCountIconStyler_DeactivateByRewriting >> iconFor: aNode [
-	^ self iconNamed: #haltIcon 
-]
-
-{ #category : #defaults }
 HaltOnCountIconStyler_DeactivateByRewriting >> iconLabelBlock: aNode [
 	^ ['Deactivate by rewriting']
 ]

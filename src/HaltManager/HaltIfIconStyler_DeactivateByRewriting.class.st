@@ -8,18 +8,6 @@ Class {
 }
 
 { #category : #defaults }
-HaltIfIconStyler_DeactivateByRewriting >> iconBlock: aNode [
-	^[ :textSegmentMorph | 
-		HaltRewriter rewriteMessageNode: aNode toChangeSelectorTo: #inactiveHaltIf:.
-		textSegmentMorph delete]
-]
-
-{ #category : #defaults }
-HaltIfIconStyler_DeactivateByRewriting >> iconFor: aNode [
-	^ self iconNamed: #haltIcon 
-]
-
-{ #category : #defaults }
 HaltIfIconStyler_DeactivateByRewriting >> iconLabelBlock: aNode [
 	^ ['Deactivate by rewriting']
 ]
