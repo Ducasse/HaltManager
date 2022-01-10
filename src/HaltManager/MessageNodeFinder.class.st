@@ -16,8 +16,9 @@ MessageNodeFinder class >> findMessageNodesSatisfying: aBlock inNode: anRBProgra
 	^ self new findMessageNodesSatisfying: aBlock inNode: anRBProgramNode.
 ]
 
-{ #category : #main }
+{ #category : #public }
 MessageNodeFinder >> findMessageNodesSatisfying: aBlock inNode: anRBProgramNode [
+
 	messageNodeCheckingBlock := aBlock.
 	anRBProgramNode acceptVisitor: self.
 	^ resultMessageNodes.
@@ -25,11 +26,14 @@ MessageNodeFinder >> findMessageNodesSatisfying: aBlock inNode: anRBProgramNode 
 
 { #category : #initialization }
 MessageNodeFinder >> initialize [
+	super initialize.
 	resultMessageNodes := LinkedList new.
 ]
 
 { #category : #initialization }
 MessageNodeFinder >> visitMessageNode: aMessageNode [
-	(messageNodeCheckingBlock value: aMessageNode) ifTrue: [resultMessageNodes add: aMessageNode ].
+
+	(messageNodeCheckingBlock value: aMessageNode) 
+		ifTrue: [resultMessageNodes add: aMessageNode ].
 	super visitMessageNode: aMessageNode.
 ]

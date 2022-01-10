@@ -14,7 +14,7 @@ instance variables:
 - link <Metalink> see b) above
 "
 Class {
-	#name : #'InactiveHalt_Metalink',
+	#name : #InactiveHaltMetalink,
 	#superclass : #Object,
 	#instVars : [
 		'link',
@@ -27,12 +27,12 @@ Class {
 }
 
 { #category : #accessing }
-InactiveHalt_Metalink class >> allInactiveHalts [
+InactiveHaltMetalink class >> allInactiveHalts [
 	^ allInactiveHalts
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink class >> browseAll [
+InactiveHaltMetalink class >> browseAll [
 	<script>
 	| methods |
 	methods := allInactiveHalts flatCollect: [ :inactiveHalt | inactiveHalt link methods].
@@ -40,15 +40,15 @@ InactiveHalt_Metalink class >> browseAll [
 ]
 
 { #category : #'deactivation reactivation' }
-InactiveHalt_Metalink class >> deactivateHaltNode: aNode [
+InactiveHaltMetalink class >> deactivateHaltNode: aNode [
 	|inactiveHalt|
-	inactiveHalt := InactiveHalt_Metalink new correspondingHaltNode: aNode.
+	inactiveHalt := InactiveHaltMetalink new correspondingHaltNode: aNode.
 	inactiveHalt installLink.
 	allInactiveHalts add: inactiveHalt.
 ]
 
 { #category : #'update on announcement' }
-InactiveHalt_Metalink class >> handleClassRemoved: anAnnouncement [
+InactiveHaltMetalink class >> handleClassRemoved: anAnnouncement [
 	allInactiveHalts copy do: [ :inHalt |
 		inHalt link methods
 			detect: [ :m | m methodClass = anAnnouncement classRemoved ]
@@ -56,35 +56,35 @@ InactiveHalt_Metalink class >> handleClassRemoved: anAnnouncement [
 ]
 
 { #category : #'update on announcement' }
-InactiveHalt_Metalink class >> handleMethodModified: anAnnouncement [
+InactiveHaltMetalink class >> handleMethodModified: anAnnouncement [
 	self removeInactiveHaltsInMethod: anAnnouncement oldMethod
 ]
 
 { #category : #'update on announcement' }
-InactiveHalt_Metalink class >> handleMethodRemoved: anAnnouncement [
+InactiveHaltMetalink class >> handleMethodRemoved: anAnnouncement [
 	self removeInactiveHaltsInMethod: anAnnouncement method
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink class >> inactiveHaltsInMethod: aMethod [ 
+InactiveHaltMetalink class >> inactiveHaltsInMethod: aMethod [ 
 	^allInactiveHalts select: [ :inHalt |
 		inHalt link methods anySatisfy: [ :meth | meth == aMethod ]
 	]
 ]
 
 { #category : #initialization }
-InactiveHalt_Metalink class >> initialize [
+InactiveHaltMetalink class >> initialize [
 	allInactiveHalts := LinkedList new.
 	self registerInterestToSystemAnnouncement.
 ]
 
 { #category : #dustbin }
-InactiveHalt_Metalink class >> isHaltMessageNodeInactive: aNode [
+InactiveHaltMetalink class >> isHaltMessageNodeInactive: aNode [
 	^ allInactiveHalts anySatisfy: [ :inacHalt | inacHalt correspondingHaltNode == aNode].
 ]
 
 { #category : #'deactivation reactivation' }
-InactiveHalt_Metalink class >> reactivateHaltNode: aNode [
+InactiveHaltMetalink class >> reactivateHaltNode: aNode [
 	|inactiveHalt|
 	inactiveHalt := (allInactiveHalts select: [ :inacHalt | inacHalt correspondingHaltNode == aNode]) first.
 	inactiveHalt uninstallLink.
@@ -92,7 +92,7 @@ InactiveHalt_Metalink class >> reactivateHaltNode: aNode [
 ]
 
 { #category : #initialization }
-InactiveHalt_Metalink class >> registerInterestToSystemAnnouncement [
+InactiveHaltMetalink class >> registerInterestToSystemAnnouncement [
 	<systemEventRegistration>
 	
 	SystemAnnouncer uniqueInstance unsubscribe: self.
@@ -102,20 +102,20 @@ InactiveHalt_Metalink class >> registerInterestToSystemAnnouncement [
 ]
 
 { #category : #removing }
-InactiveHalt_Metalink class >> removeAll [ 
+InactiveHaltMetalink class >> removeAll [ 
 	<script>
 	allInactiveHalts copy do: [:elem | elem uninstallLink].
 	allInactiveHalts := LinkedList new.
 ]
 
 { #category : #removing }
-InactiveHalt_Metalink class >> removeInactiveHalt: anInactiveHalt [
+InactiveHaltMetalink class >> removeInactiveHalt: anInactiveHalt [
 	anInactiveHalt uninstallLink.
 	allInactiveHalts remove: anInactiveHalt.
 ]
 
 { #category : #removing }
-InactiveHalt_Metalink class >> removeInactiveHaltsInMethod: aMethod [
+InactiveHaltMetalink class >> removeInactiveHaltsInMethod: aMethod [
 	|inactiveHaltsInMethod|
 	inactiveHaltsInMethod := self inactiveHaltsInMethod: aMethod.
 	inactiveHaltsInMethod do: [ :inHalt | self removeInactiveHalt: inHalt ].
@@ -126,40 +126,40 @@ InactiveHalt_Metalink class >> removeInactiveHaltsInMethod: aMethod [
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink >> correspondingHaltNode [
+InactiveHaltMetalink >> correspondingHaltNode [
 	^ correspondingHaltNode
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink >> correspondingHaltNode: anObject [
+InactiveHaltMetalink >> correspondingHaltNode: anObject [
 	correspondingHaltNode := anObject
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink >> emptyReplacementLink [
+InactiveHaltMetalink >> emptyReplacementLink [
 	^ MetaLink new
-		metaObject: InactiveHalt_MetalinkTarget ;
+		metaObject: InactiveHaltMetalinkTargetException ;
 		selector: #doNotBreak;
 		control: #instead;
 		options: #(optionCompileOnLinkInstallation).
 ]
 
-{ #category : #'as yet unclassified' }
-InactiveHalt_Metalink >> installLink [
+{ #category : #install }
+InactiveHaltMetalink >> installLink [
 	self correspondingHaltNode link: self link.
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink >> link [
+InactiveHaltMetalink >> link [
 	^ link ifNil: [link := self emptyReplacementLink]
 ]
 
 { #category : #accessing }
-InactiveHalt_Metalink >> link: anObject [
+InactiveHaltMetalink >> link: anObject [
 	link := anObject
 ]
 
-{ #category : #'as yet unclassified' }
-InactiveHalt_Metalink >> uninstallLink [
+{ #category : #install }
+InactiveHaltMetalink >> uninstallLink [
 	self link uninstall.
 ]

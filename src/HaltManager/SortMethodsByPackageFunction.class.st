@@ -4,7 +4,7 @@ Class {
 	#category : #'HaltManager-Core'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #collating }
 SortMethodsByPackageFunction >> collate: aMethod1 with: aMethod2 [
 	"Returns:
 		-1 if aMethod1 is 'lower than' aMethod2

@@ -13,7 +13,7 @@ DeactivateByMetalinkStyler >> highlightColor [
 { #category : #defaults }
 DeactivateByMetalinkStyler >> iconBlock: aNode [
 	^[ :textSegmentMorph | 
-		InactiveHalt_Metalink deactivateHaltNode: aNode.
+		InactiveHaltMetalink deactivateHaltNode: aNode.
 		textSegmentMorph delete]
 ]
 

@@ -12,7 +12,7 @@ ReactivateByMetalinkStyler >> highlightColor [
 { #category : #defaults }
 ReactivateByMetalinkStyler >> iconBlock: aNode [
 	^[ :seg | 
-		InactiveHalt_Metalink reactivateHaltNode: aNode.
+		InactiveHaltMetalink reactivateHaltNode: aNode.
 		seg delete]
 ]
 

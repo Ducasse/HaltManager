@@ -113,7 +113,7 @@ InactiveBreakpoint class >> removeAll [
 { #category : #removing }
 InactiveBreakpoint class >> removeFrom: aNode [
 	| links breakpointsToRemove |
-	links := aNode beforeLinks select: [ :link | link metaObject = InactiveBreakpoint_MetalinkTarget].
+	links := aNode beforeLinks select: [ :link | link metaObject = InactiveBreakpointMetalinkTargetException].
 	breakpointsToRemove := self allInactiveBreakpoints select: [ :br | links includes: br link].
 	breakpointsToRemove do: #remove.
 ]
@@ -139,7 +139,7 @@ InactiveBreakpoint >> correspondingActiveBreakpoint: anObject [
 { #category : #accessing }
 InactiveBreakpoint >> inactiveBreakLink [
 	^ MetaLink new
-		metaObject: InactiveBreakpoint_MetalinkTarget;
+		metaObject: InactiveBreakpointMetalinkTargetException;
 		selector: #doNotBreak";
 		options: options"
 ]
