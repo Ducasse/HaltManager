@@ -3,7 +3,7 @@ For each haltIf: message in code browsers (like `self haltIf: [true]`), I add a 
 "
 Class {
 	#name : #'HaltIfIconStyler_DeactivateByRewriting',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByRewritingStyler,
 	#category : #'HaltManager-Stylers'
 }
 

@@ -1,6 +1,6 @@
 Class {
 	#name : #'InactiveHaltIfNilIconStyler_ReactivateByRewriting',
-	#superclass : #IconStyler,
+	#superclass : #ReactivateByRewritingStyler,
 	#category : #'HaltManager-Stylers'
 }
 

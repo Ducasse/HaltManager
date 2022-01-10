@@ -3,7 +3,7 @@ For each haltOnce message in code browsers (like `self haltOnce`), I add a butto
 "
 Class {
 	#name : #'HaltOnceIconStyler_DeactivateByRewriting',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByRewritingStyler,
 	#category : #'HaltManager-Stylers'
 }
 

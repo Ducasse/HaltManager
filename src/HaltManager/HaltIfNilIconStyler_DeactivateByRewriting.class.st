@@ -3,7 +3,7 @@ For each haltIfNil message in code browsers (like `self haltIfNil`), I add a but
 "
 Class {
 	#name : #'HaltIfNilIconStyler_DeactivateByRewriting',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByRewritingStyler,
 	#category : #'HaltManager-Stylers'
 }
 

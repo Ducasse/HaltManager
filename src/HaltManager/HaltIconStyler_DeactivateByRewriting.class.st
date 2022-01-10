@@ -3,7 +3,7 @@ For each halt message in code browsers (like `self halt`), I add a button in the
 "
 Class {
 	#name : #'HaltIconStyler_DeactivateByRewriting',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByRewritingStyler,
 	#category : #'HaltManager-Stylers'
 }
 

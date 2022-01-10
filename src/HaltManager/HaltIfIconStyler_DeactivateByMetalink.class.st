@@ -3,7 +3,7 @@ For each haltIf: message in code browsers (like `self haltIf: [true]`), I add a 
 "
 Class {
 	#name : #'HaltIfIconStyler_DeactivateByMetalink',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByMetalinkStyler,
 	#category : #'HaltManager-Stylers'
 }
 

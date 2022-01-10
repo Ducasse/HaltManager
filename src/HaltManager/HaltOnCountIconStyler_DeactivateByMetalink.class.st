@@ -3,7 +3,7 @@ For each haltOnCount: message in code browsers (like `self haltOnCount: 2`), I a
 "
 Class {
 	#name : #'HaltOnCountIconStyler_DeactivateByMetalink',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByMetalinkStyler,
 	#category : #'HaltManager-Stylers'
 }
 

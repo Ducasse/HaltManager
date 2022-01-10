@@ -3,7 +3,7 @@ For each halt message in code browsers (like `self halt`), I add a button in the
 "
 Class {
 	#name : #'HaltIconStyler_DeactivateByMetalink',
-	#superclass : #IconStyler,
+	#superclass : #DeactivateByMetalinkStyler,
 	#category : #'HaltManager-Stylers'
 }
 

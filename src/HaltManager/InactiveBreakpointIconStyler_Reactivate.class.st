@@ -3,7 +3,7 @@ For each inactive breakpoint (all flavours of them, so including inactive break 
 "
 Class {
 	#name : #'InactiveBreakpointIconStyler_Reactivate',
-	#superclass : #IconStyler,
+	#superclass : #InactiveBreakpointIconStyler,
 	#category : #'HaltManager-Stylers'
 }
 
