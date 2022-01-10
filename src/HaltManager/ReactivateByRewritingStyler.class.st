@@ -10,6 +10,13 @@ ReactivateByRewritingStyler >> highlightColor [
 ]
 
 { #category : #defaults }
+ReactivateByRewritingStyler >> iconBlock: aNode forSelector: aSelector [
+	^[ :textSegmentMorph | 
+		HaltRewriter rewriteMessageNode: aNode toChangeSelectorTo: aSelector.
+		textSegmentMorph delete]
+]
+
+{ #category : #defaults }
 ReactivateByRewritingStyler >> iconFor: aNode [
 	^ self iconNamed: #haltIcon 
 ]
@@ -17,4 +24,9 @@ ReactivateByRewritingStyler >> iconFor: aNode [
 { #category : #defaults }
 ReactivateByRewritingStyler >> iconLabelBlock: aNode [
 	^ ['Reactivate by rewriting']
+]
+
+{ #category : #asserting }
+ReactivateByRewritingStyler >> shouldStyleNode: aNode forSelector: aSelector [
+	^aNode isMessage and: [ (aNode selector = aSelector) and: [aNode hasInactiveHalt not]]
 ]

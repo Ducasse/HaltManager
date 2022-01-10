@@ -10,6 +10,24 @@ ReactivateByMetalinkStyler >> highlightColor [
 ]
 
 { #category : #defaults }
+ReactivateByMetalinkStyler >> iconBlock: aNode [
+	^[ :seg | 
+		InactiveHalt_Metalink reactivateHaltNode: aNode.
+		seg delete]
+]
+
+{ #category : #defaults }
 ReactivateByMetalinkStyler >> iconFor: aNode [
 	^ self iconNamed: #haltIcon 
+]
+
+{ #category : #defaults }
+ReactivateByMetalinkStyler >> iconLabelBlock: aNode [
+	^ ['Reactivate']
+]
+
+{ #category : #asserting }
+ReactivateByMetalinkStyler >> shouldStyleNode: aNode forSelector: aSelector [
+	^aNode isMessage and: [ (aNode selector = aSelector) and: [aNode hasInactiveHalt]]
+
 ]

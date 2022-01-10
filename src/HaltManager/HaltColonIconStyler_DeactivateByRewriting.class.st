@@ -15,11 +15,6 @@ HaltColonIconStyler_DeactivateByRewriting >> iconBlock: aNode [
 ]
 
 { #category : #defaults }
-HaltColonIconStyler_DeactivateByRewriting >> iconLabelBlock: aNode [
-	^ ['Deactivate by rewriting']
-]
-
-{ #category : #defaults }
 HaltColonIconStyler_DeactivateByRewriting >> shouldStyleNode: aNode [
 	^aNode isMessage and: [ (aNode selector = 'halt:') and: [aNode hasInactiveHalt not]]
 ]

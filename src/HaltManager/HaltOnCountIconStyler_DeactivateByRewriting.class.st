@@ -15,11 +15,6 @@ HaltOnCountIconStyler_DeactivateByRewriting >> iconBlock: aNode [
 ]
 
 { #category : #defaults }
-HaltOnCountIconStyler_DeactivateByRewriting >> iconLabelBlock: aNode [
-	^ ['Deactivate by rewriting']
-]
-
-{ #category : #defaults }
 HaltOnCountIconStyler_DeactivateByRewriting >> shouldStyleNode: aNode [
 	^aNode isMessage and: [ (aNode selector = 'haltOnCount:') and: [aNode hasInactiveHalt not]]
 ]

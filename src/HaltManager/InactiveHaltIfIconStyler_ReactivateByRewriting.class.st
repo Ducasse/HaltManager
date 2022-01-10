@@ -6,12 +6,14 @@ Class {
 
 { #category : #defaults }
 InactiveHaltIfIconStyler_ReactivateByRewriting >> iconBlock: aNode [
-	^[ :textSegmentMorph | 
-		HaltRewriter rewriteMessageNode: aNode toChangeSelectorTo: #haltIf:.
-		textSegmentMorph delete]
+	^ self iconBlock: aNode forSelector: #haltIf:
+
 ]
 
 { #category : #defaults }
 InactiveHaltIfIconStyler_ReactivateByRewriting >> shouldStyleNode: aNode [
-	^aNode isMessage and: [ (aNode selector = 'inactiveHaltIf:') and: [aNode hasInactiveHalt not]]
+
+	^ self shouldStyleNode: aNode forSelector: #inactiveHaltIf:
+	
+
 ]

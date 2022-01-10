@@ -8,11 +8,6 @@ Class {
 }
 
 { #category : #defaults }
-HaltIfIconStyler_DeactivateByRewriting >> iconLabelBlock: aNode [
-	^ ['Deactivate by rewriting']
-]
-
-{ #category : #defaults }
 HaltIfIconStyler_DeactivateByRewriting >> shouldStyleNode: aNode [
 	^aNode isMessage and: [ (aNode selector = 'haltIf:') and: [aNode hasInactiveHalt not]]
 ]

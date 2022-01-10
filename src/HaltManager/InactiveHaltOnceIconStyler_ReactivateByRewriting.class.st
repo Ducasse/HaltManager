@@ -6,9 +6,8 @@ Class {
 
 { #category : #defaults }
 InactiveHaltOnceIconStyler_ReactivateByRewriting >> iconBlock: aNode [
-	^[ :textSegmentMorph | 
-		HaltRewriter rewriteMessageNode: aNode toChangeSelectorTo: #haltOnce.
-		textSegmentMorph delete]
+	^ self iconBlock: aNode forSelector: #haltOnce
+
 ]
 
 { #category : #defaults }
@@ -33,5 +32,12 @@ InactiveHaltOnceIconStyler_ReactivateByRewriting >> iconBlock_old: aNode [
 
 { #category : #defaults }
 InactiveHaltOnceIconStyler_ReactivateByRewriting >> shouldStyleNode: aNode [
-	^aNode isMessage and: [ (aNode selector = 'inactiveHaltOnce') and: [aNode hasInactiveHalt not]]
+
+	^ self shouldStyleNode: aNode forSelector: #inactiveHaltOnce
+	
+]
+
+{ #category : #defaults }
+InactiveHaltOnceIconStyler_ReactivateByRewriting >> shouldStyleNode: aNode forSelector: aSelector [
+	^aNode isMessage and: [ (aNode selector = aSelector) and: [aNode hasInactiveHalt not]]
 ]

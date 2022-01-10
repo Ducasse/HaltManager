@@ -7,19 +7,9 @@ Class {
 	#category : #'HaltManager-Stylers'
 }
 
-{ #category : #defaults }
-InactiveHaltOnceIconStyler_ReactivateByMetalink >> iconBlock: aNode [
-	^[ :seg | 
-		InactiveHalt_Metalink reactivateHaltNode: aNode.
-		seg delete]
-]
-
-{ #category : #defaults }
-InactiveHaltOnceIconStyler_ReactivateByMetalink >> iconLabelBlock: aNode [
-	^ ['Reactivate']
-]
-
 { #category : #asserting }
 InactiveHaltOnceIconStyler_ReactivateByMetalink >> shouldStyleNode: aNode [
-	^aNode isMessage and: [ (aNode selector = 'haltOnce') and: [aNode hasInactiveHalt]].
+	
+	^ self shouldStyleNode: aNode forSelector: #haltOnce
+
 ]
